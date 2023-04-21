@@ -2,7 +2,7 @@ import DomParser from "dom-parser";
 import { decode as entityDecoder } from "html-entities";
 import apiRequestRawHtml from "./apiRequestRawHtml";
 
-const MAX_SEASONS = 2;
+const MAX_SEASONS = 100;
 
 export default async function seriesFetcher(id) {
   let allSeasons = [];
