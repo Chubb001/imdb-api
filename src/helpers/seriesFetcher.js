@@ -107,6 +107,14 @@ export function parseEpisodes(raw, seasonId) {
           .textContent.trim();
       } catch (_) {}
 
+      let id = null;
+      try {
+        id = node.getElementsByTagName("a");
+        id = id.find((t) => t.getAttribute("itemprop") === "name");
+        id = id.getAttribute("href");
+        id = id.split('/')[2];
+      } catch (_) {}
+
       let title = null;
       try {
         title = node.getElementsByTagName("a");
@@ -147,6 +155,7 @@ export function parseEpisodes(raw, seasonId) {
         return null;
 
       episodes.push({
+        id,
         idx: index + 1,
         no: noStr,
         title,
